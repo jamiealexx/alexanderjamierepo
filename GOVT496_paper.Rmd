@@ -24,7 +24,6 @@ _This paper presents analysis between the relationship citizens in Washington D.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some interesting research has been done in regards to 311 request systems. A study done by Finley (2017) using New York City's over 20 million service requests in 2017 shows attitudes residents have towards the homeless. In NYC, unlike D.C. 311 services include reporting people who are homeless. Finely found two traits to reports of homelessness. The first was an act of humanity; people would report an individual as homeless to help them find the resources they need to survive. The second was less humane in that people would report the homeless to escort them out of their neighbor and into an asylum. Two opposing views of homeless are demonstrated but both support a theory explained earlier- individuals who request service of their local government trust the government to take care of the issue and feel entitled to the government's service. In this case the constituents were request the government to take care of the homeless.     
 
 ## Methods       
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As discussed previously, contacting local government indicates levels of trust in government and levels of entitlement. I have taken the data collected from D.C. 311 phone calls in 2017 sourced from opendata.dc.gov, and have found a number of facts that show which of the 8 wards trust their government the most and have the highest levels of entitlement.The analysis of how quickly claims are resolved by administrations in D.C. also shows how well the social contract in D.C. is held between each ward and the government. Targeting which services in each ward take the longest to complete will indicate which areas D.C.'s local government must work on to quicken response time. This will inherently build more trust D.C. communities and D.C. government.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As discussed previously, contacting local government indicates levels of trust in government and levels of entitlement. I have taken the data collected from D.C. 311 phone calls in 2017 sourced from opendata.dc.gov, and have found a number of facts that show which of the 8 wards trust their government the most and have the highest levels of entitlement.The analysis of how quickly claims are resolved by administrations in D.C. also shows how well the social contract in D.C. is held between each ward and the government. Targeting which services in each ward take the longest to complete will indicate which areas D.C.'s local government must work on to quicken response time. This will inherently build more trust D.C. communities and D.C. government.     
 
 ## Analysis
@@ -33,9 +32,9 @@ _This paper presents analysis between the relationship citizens in Washington D.
 crosstab(test, row.vars = "SERVICECODE", col.vars = "WARD", type = "f")
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interestingly ward 7 and 8 have the largest disparity of income, pay the least in taxes, have own less D.C. property in comparison to the other 6 wards. Because of these, Wards 7 and 8 feel less ownership and less territorial of their community and request less service of the government. These two wards participation shows that they feel less entitled and less trust of D.C.'s government. Might this be because D.C.'s government responds to Wards 7 and 8 slower than to the other 6 wards?      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interestingly ward 7 and 8 have the largest disparity of income, pay the least in taxes, have own less D.C. property in comparison to the other 6 wards. Because of these, Wards 7 and 8 feel less ownership and less territorial of their community and request less service of the government. These two wards participation shows that they feel less entitled and less trust of D.C.'s government. Might this be because D.C.'s government responds to Wards 7 and 8 slower than to the other 6 wards?                
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The time it takes for administrations to respond to citizens requests indicates to the individual who much he/she is valued. If the local government takes longer to respond to one ward than to others, the government is signaling how much they value the opinions of the constituents in that ward. I found the average response time to the 311 service requests in each ward as follows: 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The time it takes for administrations to respond to citizens requests indicates to the individual who much he/she is valued. If the local government takes longer to respond to one ward than to others, the government is signaling how much they value the opinions of the constituents in that ward. I found the average response time to the 311 service requests in each ward as follows: 1-14, 2-14, 3-15, 4-15, 5-12, 6-11, 7-12.5, 8-13. The time it takes to resolve a claim in ward 7 and 8 is actually less than the time it takes to resolve a case in wards 1, 2, 3, and 4. The difference is only by a few days. Based on this information it can be concluded that D.C.'s local government does not discriminate between wards in how quickly they respond to their needs. The question still remains...why does Ward 7 and 8 not request as much service? This question can not be answered using this data but further discussion will be included in the conclusions of this paper. 
 
 ```{r avgdays,  echo=FALSE}
 avgdays <- matrix(c(14,1,14,2,15,3,15,4,12,5,11,6,12.5,7,13,8),ncol=2,byrow=TRUE)
@@ -44,9 +43,20 @@ avgdays <- as.table(avgdays)
 avgdays
 ```
 
-
+The final part of this analysis displays the differences in wards needs and where the local government can improve in meeting these needs. These next nine graphs show which request types took longest to complete in all of D.C. and by ward.     
+Overdue Services in D.C.: http://rpubs.com/jamiealexx/385652     
+As displayed in this graph D.C. takes the longest to respond to request's regarding bulk collection, parking meter repair, and parking enforcement. These requests are handled by three different administrations: the Solid Waste Management Administration, the Transportation Operations Administration, and the Parking Enforcement Management Administration. When looking at wards more specifically their is a general trend amongst wards: within their top overdue requests we see bulk collection listed.        
+Ward 1: http://rpubs.com/jamiealexx/385650     
+Ward 2: http://rpubs.com/jamiealexx/385648     
+Ward 3: http://rpubs.com/jamiealexx/385646     
+Ward 4: http://rpubs.com/jamiealexx/385645     
+Ward 5: http://rpubs.com/jamiealexx/385644      
+Ward 6: http://rpubs.com/jamiealexx/385641      
+Ward 7: http://rpubs.com/jamiealexx/385640      
+Ward 8: http://rpubs.com/jamiealexx/385639
 ## Conclusions and Questions
 ## Works Cited
+City Service Requests 2017. opendata.dc.gov
 Finley, Grace 2017. "When the Rich Meet the Poor: Interactions with the Homeless in NYC" Policy File.
 Jacob Aars & Kristin Strømsnes 2007. "Contacting as a channel of Political Involvement: Collectively
 &nbsp;&nbsp;&nbsp;Motivated, Individually Enacted, West European Politics" 30:1, 93-120.      
