@@ -56,30 +56,20 @@ Ward 7: http://rpubs.com/jamiealexx/385640
 Ward 8: http://rpubs.com/jamiealexx/385639     
 
 ## Conclusions and Questions
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As shown in my analysis, D.C. responds to each ward, disregarding overdue service analysis, promptly and fairly. However, it shows that Wards 7 and 8 have a different relationship with D.C.'s government than do the other wards. There are multiple theories at work here.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;According to O'Brien individuals who request less work on their community to be done by the government feel less tied to their community. This theory aligns with the amount of people in these wards who own versus rent their home. According to the U.S. Census Bureu, in 2017 in Ward 8, 6,358 people lived in a house they owned. Whereas as 20,384 people lived in a house they rented. In Ward 7, 11,916 people lived in a house they owned. Whereas 18,013 people lived in a house they rented. Ward 7 and 8 contrast starkly with the demographics of Ward 2, who actually requested the most service of the 8 wards. In Ward 2, in comparison to Ward 8, more than double the amount of people live in a home they own, at 14,061 people. In Ward 2 26,301 rent the house they live in. Because their are more people in Ward 2 than in Wards 7 and 8 who own property, the citizens in Ward 2 are more territorial of their community and will then request more service of their local government.        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Feeling entitled to service, according to levine and Gershenson also has to property rights. Wards  7 and 8 are in a lower income bracket in comparison to the other 6 wards and thus pay less income tax to the government. They also pay less in property taxes because they own less land in their respected wards. Due to these two factors, Wards 7 and 8 feel less engaged with the government because they are giving the government less money. Giving the government less money makes them feel less entitled to services. This may be a factor in why these two wards request less service.        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The last determinant of requesting service is trust in government. 
 ## Works Cited
 City Service Requests 2017. opendata.dc.gov
      
 Finley, Grace 2017. "When the Rich Meet the Poor: Interactions with the Homeless in NYC" Policy File.
      
 Jacob Aars & Kristin Strømsnes 2007. "Contacting as a channel of Political Involvement: Collectively
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Motivated, Individually Enacted, West European Politics" 30:1, 93-120.               
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Motivated, Individually Enacted, West European Politics" 30:1, 93-120.                             
 Levine, Jeremy R., and Carl Gershenson 2014. "From Political to Material Inequality: Race, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Immigration, and Requests for Public Goods." Sociological Forum  29:3 607-27. 
       
 O'Brien, Daniel Tumminelli 2016. "Using Small Data to Interpret Big Data: 311 Reports as Individual &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contributions to Informal Social Control in Urban Neighborhoods" Social &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Science Research. 8 83-96.      
       
 Thomas, John. 1982. "Citizen-Initiated Contacts With Government Agencies: A Test of Three Theories." &nbsp;&nbsp;&nbsp;American Journal of Political Science 26:3.            
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
