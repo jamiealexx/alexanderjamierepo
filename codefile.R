@@ -1,13 +1,14 @@
 # Jamie Alexander
 # Codefile
 
+
+`City_Service_Requests_in_2017.(1)` <- read.csv("C:/Users/JAMIE/Downloads/City_Service_Requests_in_2017 (1).csv")
 library(tidyverse)
 library(dplyr)
 library(lubridate)
-install.packages("gmodels")
-install.packages("pastecs")
-library(pastecs)
-install.packages("plotly")
+#install.packages("gmodels")
+#install.packages("pastecs")
+#install.packages("plotly")
 library(plotly)
 
 attach(`City_Service_Requests_in_2017.(1)`)
@@ -246,18 +247,18 @@ class(data3$duedate)
 
 # Creating a new variable called ExpectedDueDate which takes the difference between
 # the neworderdate and the due date
-ExpectedDueDate <- data3$duedate-data3$neworderdate
-data3$ExpectedDueDate <- data3$duedate-data3$neworderdate
+ExpectedResolveDays <- data3$duedate-data3$neworderdate
+data3$ExpectedResolveDays <- data3$duedate-data3$neworderdate
 
 # Finding out how much time is saved or lost 
-data3$Difference_ExpectedandResolve <- data3$ExpectedDueDate-data3$ResolveDays
+data3$Diff_ExpectedActual <- data3$ExpectedResolveDays-data3$ResolveDays
 
-nrow(data3[data3$Difference_ExpectedandResolve>=0, ])
+nrow(data3[data3$Diff_ExpectedActual>=0, ])
 
 # There are 26,464 values that are positive meaning that the services are being 
 # resolved quicker than their due dates.
 
-nrow(data3[data3$Difference_ExpectedandResolve<0, ])
+nrow(data3[data3$Diff_ExpectedActual<0, ])
 # There are 6278 values that are negative, meaning that these services took longer 
 # than there expected due date. 
 
@@ -281,15 +282,15 @@ data8$duedate8 <- substr(as.character(data8$SERVICEDUEDATE), 1,10)
 data8$duedate8 <- as.Date(data8$duedate8)
 class(data8$duedate8)
 
-ExpectedDueDate8 <- data8$duedate8-data8$neworderdate8
-data8$ExpectedDueDate8 <- data8$duedate8-data8$neworderdate8
+ExpectedResolveDays8 <- data8$duedate8-data8$neworderdate8
+data8$ExpectedResolveDays8 <- data8$duedate8-data8$neworderdate8
 
-data8$Difference_ExpectedandResolve8 <- data8$ExpectedDueDate8-data8$ResolveDays
-nrow(data8[data8$Difference_ExpectedandResolve8>=0, ])
+data8$Diff_ExpectedActual8 <- data8$ExpectedDueDate8-data8$ResolveDays
+nrow(data8[data8$Diff_ExpectedActual8>=0, ])
 
 # There were 21,167 requests in ward 8 that were resolved faster than expected 
 
-nrow(data8[data8$Difference_ExpectedandResolve8<0, ])
+nrow(data8[data8$Diff_ExpectedActual8<0, ])
 # There were 3,532 requests in ward 8 that were overdue. 
 
 table_overdue3 <- table(Servicetype$SERVICETYPECODEDESCRIPTION)
@@ -307,8 +308,8 @@ class(data1$duedate1)
 ExpectedDueDate1 <- data1$duedate1-data1$neworderdate1
 data1$ExpectedDueDate1 <- data1$duedate1-data1$neworderdate1
 
-data1$Difference_ExpectedandResolve1 <- data1$ExpectedDueDate1-data1$ResolveDays
-nrow(data1[data1$Difference_ExpectedandResolve1>=0, ])
+data1$Diff_ExpectedActual1 <- data1$ExpectedDueDate1-data1$ResolveDays
+nrow(data1[data1$Diff_ExpectedActual1>=0, ])
 
 # Original Data --- adding new variables
 data$neworderdate <- substr(as.character(data$SERVICEORDERDATE), 1,10)
@@ -321,17 +322,25 @@ class(data$duedate)
 ExpectedDueDate <- data$duedate-data$neworderdate
 data$ExpectedDueDate <- data$duedate-data$neworderdate
 
-data$Difference_ExpectedandResolve <- data$ExpectedDueDate-data$ResolveDays
-nrow(data[data$Difference_ExpectedandResolve>=0, ])
+data$Diff_ExpectedActual <- data$ExpectedDueDate-data$ResolveDays
+nrow(data[data$Diff_ExpectedActual>=0, ])
 
 # table of overdue services in DC
 table_overdue <- table(data$SERVICETYPECODEDESCRIPTION)
 
 # barplot of overdue services in DC
-barplot(table_overdue, main="Overdue Services in D.C.", ylab="Frequency", xlab="", las=2)
+View(barplot(table_overdue, main="Overdue Services in D.C.", ylab="Frequency", xlab="", las=2))
 
-ggplot(table_overdue, aes(x= ServiceType, y= Frequency) +
-         geom_bar())
 
-ggplot(table_overdue, aes(x, y) +
-         geom_bar())
+my_df <- as.data.frame(table_overdue)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+old_par <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp <- barplot(my_df$Freq, main = "Administrations with Overdue Services", 
+        space=1, axes = FALSE, axisnames = FALSE)
+labels <- my_df$Var1
+text(mp, par("usr")[3], labels = labels, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2)
+
+
+
+       
