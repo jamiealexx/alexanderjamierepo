@@ -1,19 +1,30 @@
 ---
-title: "D.C. Local Service Efficiency"
+title: "Improving Standards of Living in Washington, D.C."
 author: "Jamie Alexander"
-date: "May 1, 2018"
-output: html_document
+date: "May 2, 2018"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## Abstract
+_This paper presents analysis between the relationship citizens in Washington D.C. have with their local government. Data collected from the 311 service request system in D.C. gives interesting insight on the people living in D.C. Analysis of the 311 requests implicate how much of a social responsibility citizen’s hold for their community and how much trust they have in their local government. Do people trust their local government enough to call the government and request a service? In order to answer this question this paper has created a method to target which communities and for which services need more attention. Analysis of the 311 service requests also reveals where D.C.’s local government can improve their efficiency. Improving response time to service requests and building more trust between wards with lesser requests and the local government can improve the standards of living in D.C._
 
-## R Markdown
+## Introduction
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;People living in Washington D.C. have the unique opportunity to engage with the government and demand their requests be met than living in any other city in the United States. A very common form of engagement with local government in any city and in this particular case, in D.C., is to request non-emergency related services through the 311 request system. These services are provided by many different administrations such as the Solid Waste Management Administration, the Parking Enforcement Administration, and the Transportation Operations Administration. Administrations are funded by D.C.’s local government and responded to once they are directed to the case. The requests made by D.C. locals and resolved by D.C.'s administrations are a direct indicator of (1) D.C.’s responsiveness to their citizens needs; (2) citizens feelings of ownership for their community and; (3) a citizen’s trust and expectancy that their local government will complete their service request.      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This paper takes data from the 311 service requests system of D.C. in 2017 and analyzes which wards are requesting the most service. I delve into which particular services are most requested by ward and by administration. Then I discuss time as a factor of responsiveness to citizens needs and as a factor of efficiency for D.C.     
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Previous Research
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There's an ongoing discussion between academics about the indications of civic duty within smaller communities. Researchers have been studying this topic by analysis of 311 systems--- the amount of requests, the response times, and the type of requests are all important aspects that show the relationship citizens have with their local government.     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The theories that motivate the analysis in this paper stem from a combination of scholars who have written journal articles on political participation in local communities. Aars and Stomsnes (2007) believe that when citizens contact their local government it demonstrates that they have a certain degree of trust in their public administrators to meet their requests. Although their studies were focused on political participation in European cities, their analysis reveals that direct contacting is correlated with strong sentiments of a representative democracy. Other scholars such as Thomas (1982) and Levine and Gershenson (2014) believe that the citizens requesting service feel entitled to government services. Thomas's theory of "clientele participation" demonstrates this ideal perfectly-- citizens who feel entitled to service will request the most service of their local government in comparison to citizens who do not feel as entitled to service. Certain wards in the D.C. request services at a higher rate than others due to their expectations of the government. This is also an example of the "social contract" at work. The local government is expected to meet the claims of its citizens in a timely and fair manner, while citizens are expected to continuously file claims on the community in an effort to make the community a better place.      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some interesting research has been done in regards to 311 request systems. A study a
+## Methods
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As discussed previously, contacting local government indicates levels of trust in government and levels of entitlement. I have taken the data collected from D.C. 311 phone calls in 2017 sourced from opendata.dc.gov, and have found a number of facts that show which of the 8 wards trust their government the most and have the highest levels of entitlement. The analysis of how quickly claims are resolved by administrations in D.C. also shows how well the social contract in D.C. is held between each ward and the government. 
+## Analysis
+## Conclusions and Questions
 
 ```{r cars}
 summary(cars)
