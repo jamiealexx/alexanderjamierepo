@@ -34,7 +34,7 @@ crosstab(test, row.vars = "SERVICECODE", col.vars = "WARD", type = "f")
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The time it takes for administrations to respond to citizens requests indicates to the individual who much he/she is valued. If the local government takes longer to respond to one ward than to others, the government is signaling how much they value the opinions of the constituents in that ward. I found the average response time to the 311 service requests in each ward as follows: 
 
-```{r} echo=FALSE
+```{r avgdays,  echo=FALSE}
 avgdays <- matrix(c(14,1,14,2,15,3,15,4,12,5,11,6,12.5,7,13,8),ncol=2,byrow=TRUE)
 colnames(avgdays) <- c("Days", "WARD")
 avgdays <- as.table(avgdays)
