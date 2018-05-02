@@ -231,6 +231,76 @@ crosstab(test, row.vars = "SERVICECODE", col.vars = "WARD", type = "f")
 
 # Slicing data:
 
+View(table_overdue)
+
+# Creating a bar graph of the services that took longer to resolve than the 
+# due date to resolve
+
+
+barplot(table_overdue, main="Overdue Services between all 8 Wards", ylab="Frequency", xlab="", las=2)
+
+
+# Creating expected resolution days variable and finding out the amount of days between 
+# actual resolve days and expected resolve days. Making a bar graph of overdue services
+
+table_overdue3 <- table(Servicetype$SERVICETYPECODEDESCRIPTION)
+table_overdue8 <- table(Servicetype$SERVICETYPECODEDESCRIPTION)
+View(table_overdue8)
+
+
+# Original Data --- adding new variables
+data$neworderdate <- substr(as.character(data$SERVICEORDERDATE), 1,10)
+data$neworderdate <- as.Date(data$neworderdate)
+class(data$neworderdate)
+data$duedate <- substr(as.character(data$SERVICEDUEDATE), 1,10)
+data$duedate <- as.Date(data$duedate)
+class(data$duedate)
+
+ExpectedDueDate <- data$duedate-data$neworderdate
+data$ExpectedDueDate <- data$duedate-data$neworderdate
+
+data$Diff_ExpectedActual <- data$ExpectedDueDate-data$ResolveDays
+nrow(data[data$Diff_ExpectedActual>=0, ])
+
+# Ward 1 creating new variables
+data1$neworderdate1 <- substr(as.character(data1$SERVICEORDERDATE), 1,10)
+data1$neworderdate1 <- as.Date(data1$neworderdate1)
+class(data1$neworderdate1)
+data1$duedate1 <- substr(as.character(data1$SERVICEDUEDATE), 1,10)
+data1$duedate1 <- as.Date(data1$duedate1)
+class(data1$duedate1)
+
+ExpectedDueDate1 <- data1$duedate1-data1$neworderdate1
+data1$ExpectedDueDate1 <- data1$duedate1-data1$neworderdate1
+
+data1$Diff_ExpectedActual1 <- data1$ExpectedDueDate1-data1$ResolveDays
+nrow(data1[data1$Diff_ExpectedActual1>=0, ])
+# There were 33,025 requests in ward 1 that were resolved on or before their due date.
+
+nrow(data1[data1$Diff_ExpectedActual1<0, ])
+# There were 5864 requests in Ward 1 that were resolved after their due date. 
+
+
+# Ward 2 --- adding new variables
+data2$neworderdate2 <- substr(as.character(data2$SERVICEORDERDATE), 1,10)
+data2$neworderdate2 <- as.Date(data2$neworderdate2)
+class(data2$neworderdate2)
+data2$duedate2 <- substr(as.character(data2$SERVICEDUEDATE), 1,10)
+data2$duedate2 <- as.Date(data2$duedate2)
+class(data2$duedate2)
+
+ExpectedDueDate2 <- data2$duedate2-data2$neworderdate2
+data2$ExpectedDueDate2 <- data2$duedate2-data2$neworderdate2
+
+data2$Diff_ExpectedActual2 <- data2$ExpectedDueDate2-data2$ResolveDays
+nrow(data2[data2$Diff_ExpectedActual2>=0, ])
+# There were 43,952 requests in Ward 2 closed on or before their due date 
+
+nrow(data2[data2$Diff_ExpectedActual2<0, ])
+# There were 11,305 requests in Ward 2 that were overdue
+
+# Ward 3 --- adding new variables
+
 # Creating the new variable called neworderdate and making it read as a date from
 # the SERVICEORDERDATE variable
 
@@ -262,19 +332,79 @@ nrow(data3[data3$Diff_ExpectedActual<0, ])
 # There are 6278 values that are negative, meaning that these services took longer 
 # than there expected due date. 
 
-View(table_overdue)
+# Ward 4 --- adding new variables
+data4$neworderdate4 <- substr(as.character(data4$SERVICEORDERDATE), 1,10)
+data4$neworderdate4 <- as.Date(data4$neworderdate4)
+class(data4$neworderdate4)
+data4$duedate4 <- substr(as.character(data4$SERVICEDUEDATE), 1,10)
+data4$duedate4 <- as.Date(data4$duedate4)
+class(data4$duedate4)
 
-# Creating a bar graph of the services that took longer to resolve than the 
-# due date to resolve
+ExpectedDueDate4 <- data4$duedate4-data4$neworderdate4
+data4$ExpectedDueDate4 <- data4$duedate4-data4$neworderdate4
 
+data4$Diff_ExpectedActual4 <- data4$ExpectedDueDate4-data4$ResolveDays
+nrow(data4[data4$Diff_ExpectedActual4>=0, ])
+# There were 38,833 requests in Ward 4 closed on or before their due date. 
 
-barplot(table_overdue, main="Overdue Services between all 8 Wards", ylab="Frequency", xlab="", las=2)
+nrow(data4[data4$Diff_ExpectedActual4<0, ])
+# There were 6,707 requests in Ward 4 that were closed after their due date.
 
+# Ward 5 --- adding new variables
+data5$neworderdate5 <- substr(as.character(data5$SERVICEORDERDATE), 1,10)
+data5$neworderdate5 <- as.Date(data5$neworderdate5)
+class(data5$neworderdate5)
+data5$duedate5 <- substr(as.character(data5$SERVICEDUEDATE), 1,10)
+data5$duedate5 <- as.Date(data5$duedate5)
+class(data5$duedate5)
 
-# Creating expected resolution days variable and finding out the amount of days between 
-# actual resolve days and expected resolve days. Making a bar graph of overdue services
+ExpectedDueDate5 <- data5$duedate5-data5$neworderdate5
+data5$ExpectedDueDate5 <- data5$duedate5-data5$neworderdate5
 
+data5$Diff_ExpectedActual5 <- data5$ExpectedDueDate5-data5$ResolveDays
+nrow(data5[data5$Diff_ExpectedActual5>=0, ])
+# There were 39,123 requests in Ward 5 closed on or before their due date. 
 
+nrow(data5[data5$Diff_ExpectedActual5<0, ])
+# There were  6,415 requests in Ward 5 that were closed after their due date.
+
+# Ward 6 -- adding new variables 
+data6$neworderdate6 <- substr(as.character(data6$SERVICEORDERDATE), 1,10)
+data6$neworderdate6 <- as.Date(data6$neworderdate6)
+class(data6$neworderdate6)
+data6$duedate6 <- substr(as.character(data6$SERVICEDUEDATE), 1,10)
+data6$duedate6 <- as.Date(data6$duedate6)
+class(data6$duedate6)
+
+ExpectedDueDate6 <- data6$duedate6-data6$neworderdate6
+data6$ExpectedDueDate6 <- data6$duedate6-data6$neworderdate6
+
+data6$Diff_ExpectedActual6 <- data6$ExpectedDueDate6-data6$ResolveDays
+nrow(data6[data6$Diff_ExpectedActual6>=0, ])
+# There were 45,261 requests in Ward 6 closed on or before their due date. 
+
+nrow(data6[data6$Diff_ExpectedActual6<0, ])
+# There were  7,746 requests in Ward 6 that were closed after their due date.
+
+# Ward 7 --- new variable 
+data7$neworderdate7 <- substr(as.character(data7$SERVICEORDERDATE), 1,10)
+data7$neworderdate7 <- as.Date(data7$neworderdate7)
+class(data7$neworderdate7)
+data7$duedate7 <- substr(as.character(data7$SERVICEDUEDATE), 1,10)
+data7$duedate7 <- as.Date(data7$duedate7)
+class(data7$duedate7)
+
+ExpectedDueDate7 <- data7$duedate7-data7$neworderdate7
+data7$ExpectedDueDate7 <- data7$duedate7-data7$neworderdate7
+
+data7$Diff_ExpectedActual7 <- data7$ExpectedDueDate7-data7$ResolveDays
+nrow(data7[data7$Diff_ExpectedActual7>=0, ])
+# There were 30,705 requests in Ward 7 closed on or before their due date. 
+
+nrow(data7[data7$Diff_ExpectedActual7<0, ])
+# There were 4,966 requests in Ward 7 that were closed after their due date.
+
+# Ward 8 -- creating new variables 
 data8$neworderdate8 <- substr(as.character(data8$SERVICEORDERDATE), 1,10)
 data8$neworderdate8 <- as.Date(data8$neworderdate8)
 class(data8$neworderdate8)
@@ -282,65 +412,129 @@ data8$duedate8 <- substr(as.character(data8$SERVICEDUEDATE), 1,10)
 data8$duedate8 <- as.Date(data8$duedate8)
 class(data8$duedate8)
 
-ExpectedResolveDays8 <- data8$duedate8-data8$neworderdate8
-data8$ExpectedResolveDays8 <- data8$duedate8-data8$neworderdate8
+ExpectedDueDate8 <- data8$duedate8-data8$neworderdate8
+data8$ExpectedDueDate8 <- data8$duedate8-data8$neworderdate8
 
 data8$Diff_ExpectedActual8 <- data8$ExpectedDueDate8-data8$ResolveDays
 nrow(data8[data8$Diff_ExpectedActual8>=0, ])
-
 # There were 21,167 requests in ward 8 that were resolved faster than expected 
 
 nrow(data8[data8$Diff_ExpectedActual8<0, ])
 # There were 3,532 requests in ward 8 that were overdue. 
 
-table_overdue3 <- table(Servicetype$SERVICETYPECODEDESCRIPTION)
-table_overdue8 <- table(Servicetype$SERVICETYPECODEDESCRIPTION)
-View(table_overdue8)
-
-# Ward 1 creating new variables
-data1$neworderdate1 <- substr(as.character(data1$SERVICEORDERDATE), 1,10)
-data1$neworderdate1 <- as.Date(data1$neworderdate1)
-class(data1$neworderdate1)
-data1$duedate1 <- substr(as.character(data1$SERVICEDUEDATE), 1,10)
-data1$duedate1 <- as.Date(data1$duedate1)
-class(data1$duedate1)
-
-ExpectedDueDate1 <- data1$duedate1-data1$neworderdate1
-data1$ExpectedDueDate1 <- data1$duedate1-data1$neworderdate1
-
-data1$Diff_ExpectedActual1 <- data1$ExpectedDueDate1-data1$ResolveDays
-nrow(data1[data1$Diff_ExpectedActual1>=0, ])
-
-# Original Data --- adding new variables
-data$neworderdate <- substr(as.character(data$SERVICEORDERDATE), 1,10)
-data$neworderdate <- as.Date(data$neworderdate)
-class(data$neworderdate)
-data$duedate <- substr(as.character(data$SERVICEDUEDATE), 1,10)
-data$duedate <- as.Date(data$duedate)
-class(data$duedate)
-
-ExpectedDueDate <- data$duedate-data$neworderdate
-data$ExpectedDueDate <- data$duedate-data$neworderdate
-
-data$Diff_ExpectedActual <- data$ExpectedDueDate-data$ResolveDays
-nrow(data[data$Diff_ExpectedActual>=0, ])
-
 # table of overdue services in DC
-table_overdue <- table(data$SERVICETYPECODEDESCRIPTION)
+table_overdue_byadmin <- table(data$SERVICETYPECODEDESCRIPTION)
 
-# barplot of overdue services in DC
-View(barplot(table_overdue, main="Overdue Services in D.C.", ylab="Frequency", xlab="", las=2))
+# barplot of administrations that produce overdue services in DC 
+View(barplot(table_overdue_byadmin, main="Overdue Services in D.C.", ylab="Frequency", xlab="", las=2))
 
 
-my_df <- as.data.frame(table_overdue)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
-old_par <- par()
+my_df_admin <- as.data.frame(table_overdue_byadmin)[order(as.data.frame(table_overdue_byadmin)$Freq,decreasing = TRUE),]
+old_par_admin <- par()
 par(mar=c(15.1,6.1,4.1,2.1))
-mp <- barplot(my_df$Freq, main = "Administrations with Overdue Services", 
+mp_admin <- barplot(my_df_admin$Freq, main = "Administrations with Overdue Services", 
         space=1, axes = FALSE, axisnames = FALSE)
-labels <- my_df$Var1
-text(mp, par("usr")[3], labels = labels, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+labels_admin <- my_df_admin$Var1
+text(mp, par("usr")[3], labels = labels_admin, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2)
 
 
+# barplot of overdue services in DC
+table_overdue_services <- table(data$SERVICECODEDESCRIPTION)
+my_df_services <- as.data.frame(table_overdue_services)[order(as.data.frame(table_overdue_services)$Freq,decreasing = TRUE),]
+old_par_services <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp_services <- barplot(my_df_services$Freq, main = "Overdue Services in D.C.", 
+              space=1, axes = FALSE, axisnames = FALSE)
+labels_services <- my_df_services$Var1
+text(mp_services, par("usr")[3], labels = labels_services, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2)       
 
-       
+
+# Ward 1 -- overdue services barplot
+table_overdue1 <- table(data1$SERVICECODEDESCRIPTION)
+my_df1 <- as.data.frame(table_overdue1)[order(as.data.frame(table_overdue1)$Freq,decreasing = TRUE),]
+old_par1 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp1 <- barplot(my_df1$Freq, main = "Overdue Services in Ward 1", 
+              space=1, axes = FALSE, axisnames = FALSE)
+labels1 <- my_df1$Var1
+text(mp, par("usr")[3], labels = labels1, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
+
+# Ward 2 -- overdue services barplot
+table_overdue2 <- table(data2$SERVICECODEDESCRIPTION)
+my_df2 <- as.data.frame(table_overdue2)[order(as.data.frame(table_overdue2)$Freq,decreasing = TRUE),]
+old_par2 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp2 <- barplot(my_df2$Freq, main = "Overdue Services in Ward 2", 
+               space=1, axes = FALSE, axisnames = FALSE)
+labels2 <- my_df2$Var1
+text(mp, par("usr")[3], labels = labels1, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
+
+# Ward 3 -- overdue services barplot
+table_overdue3 <- table(data3$SERVICECODEDESCRIPTION)
+my_df3 <- as.data.frame(table_overdue3)[order(as.data.frame(table_overdue3)$Freq,decreasing = TRUE),]
+old_par3 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp3 <- barplot(my_df3$Freq, main = "Overdue Services in Ward 3", 
+               space=1, axes = FALSE, axisnames = FALSE)
+labels3 <- my_df3$Var1
+text(mp, par("usr")[3], labels = labels3, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
+
+# Ward 4 --- overdue services barplot
+table_overdue4 <- table(data4$SERVICECODEDESCRIPTION)
+my_df4 <- as.data.frame(table_overdue4)[order(as.data.frame(table_overdue4)$Freq,decreasing = TRUE),]
+old_par4 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp4 <- barplot(my_df4$Freq, main = "Overdue Services in Ward 4", 
+               space=1, axes = FALSE, axisnames = FALSE)
+labels4 <- my_df4$Var1
+text(mp, par("usr")[3], labels = labels4, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
+
+# Ward 5 --- overdue services barplot
+table_overdue5 <- table(data5$SERVICECODEDESCRIPTION)
+my_df5 <- as.data.frame(table_overdue5)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+old_par5 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp5 <- barplot(my_df5$Freq, main = "Overdue Services in Ward 5", 
+               space=1, axes = FALSE, axisnames = FALSE)
+labels5 <- my_df5$Var1
+text(mp, par("usr")[3], labels = labels5, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
+
+# Ward 6 -- overdue services barplot
+table_overdue6 <- table(data6$SERVICECODEDESCRIPTION)
+my_df6 <- as.data.frame(table_overdue6)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+old_par6 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp6 <- barplot(my_df6$Freq, main = "Overdue Services in Ward 6", 
+               space=1, axes = FALSE, axisnames = FALSE)
+labels6 <- my_df6$Var1
+text(mp, par("usr")[3], labels = labels6, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
+
+# Ward 7 --- overdue requests barplot
+table_overdue7 <- table(data7$SERVICECODEDESCRIPTION)
+my_df7 <- as.data.frame(table_overdue7)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+old_par7 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp7 <- barplot(my_df7$Freq, main = "Overdue Services in Ward 7", 
+               space=1, axes = FALSE, axisnames = FALSE)
+labels7 <- my_df7$Var1
+text(mp, par("usr")[3], labels = labels7, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
+
+# Ward 8 --- overdue requests barplot
+table_overdue8 <- table(data8$SERVICECODEDESCRIPTION)
+my_df8 <- as.data.frame(table_overdue8)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+old_par8 <- par()
+par(mar=c(15.1,6.1,4.1,2.1))
+mp8 <- barplot(my_df8$Freq, main = "Overdue Services in Ward 8", 
+               space=1, axes = FALSE, axisnames = FALSE)
+labels8 <- my_df8$Var1
+text(mp, par("usr")[3], labels = labels8, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2) 
