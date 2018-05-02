@@ -26,9 +26,19 @@ _This paper presents analysis between the relationship citizens in Washington D.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As discussed previously, contacting local government indicates levels of trust in government and levels of entitlement. I have taken the data collected from D.C. 311 phone calls in 2017 sourced from opendata.dc.gov, and have found a number of facts that show which of the 8 wards trust their government the most and have the highest levels of entitlement.The analysis of how quickly claims are resolved by administrations in D.C. also shows how well the social contract in D.C. is held between each ward and the government. Targeting which services in each ward take the longest to complete will indicate which areas D.C.'s local government must work on to quicken response time. This will inherently build more trust D.C. communities and D.C. government.
 ## Analysis
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to find out which wards of D.C. trust the government the most and feel most entitled to services, I've found which wards request the most services. In order from most requested to least requested 2, 6, 5, 4, 1, 7, 3, 8.
-crosstab(test, row.vars = "SERVICECODE", col.vars = "WARD", type = "f")
 ```{r}
 crosstab(test, row.vars = "SERVICECODE", col.vars = "WARD", type = "f")
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interestingly ward 7 and 8 have the largest disparity of income, pay the least in taxes, have own less D.C. property in comparison to the other 6 wards. Because of these, Wards 7 and 8 feel less ownership and less territorial of their community and request less service of the government. These two wards participation shows that they feel less entitled and less trust of D.C.'s government. Might this be because D.C.'s government responds to Wards 7 and 8 slower than to the other 6 wards?      
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The time it takes for administrations to respond to citizens requests indicates to the individual who much he/she is valued. If the local government takes longer to respond to one ward than to others, the government is signaling how much they value the opinions of the constituents in that ward. I found the average response time to the 311 service requests in each ward as follows: 
+
+```{r}
+avgdays <- matrix(c(14,1,14,2,15,3,15,4,12,5,11,6,12.5,7,13,8),ncol=2,byrow=TRUE)
+colnames(avgdays) <- c("Days", "WARD")
+avgdays <- as.table(avgdays)
+avgdays
 ```
 
 
