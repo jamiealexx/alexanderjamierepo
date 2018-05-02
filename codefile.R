@@ -243,10 +243,6 @@ barplot(table_overdue, main="Overdue Services between all 8 Wards", ylab="Freque
 # Creating expected resolution days variable and finding out the amount of days between 
 # actual resolve days and expected resolve days. Making a bar graph of overdue services
 
-table_overdue3 <- table(Servicetype$SERVICETYPECODEDESCRIPTION)
-table_overdue8 <- table(Servicetype$SERVICETYPECODEDESCRIPTION)
-View(table_overdue8)
-
 
 # Original Data --- adding new variables
 data$neworderdate <- substr(as.character(data$SERVICEORDERDATE), 1,10)
@@ -435,7 +431,7 @@ par(mar=c(15.1,6.1,4.1,2.1))
 mp_admin <- barplot(my_df_admin$Freq, main = "Administrations with Overdue Services", 
         space=1, axes = FALSE, axisnames = FALSE)
 labels_admin <- my_df_admin$Var1
-text(mp, par("usr")[3], labels = labels_admin, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp_admin, par("usr")[3], labels = labels_admin, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2)
 
 
@@ -459,7 +455,7 @@ par(mar=c(15.1,6.1,4.1,2.1))
 mp1 <- barplot(my_df1$Freq, main = "Overdue Services in Ward 1", 
               space=1, axes = FALSE, axisnames = FALSE)
 labels1 <- my_df1$Var1
-text(mp, par("usr")[3], labels = labels1, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp1, par("usr")[3], labels = labels1, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2) 
 
 # Ward 2 -- overdue services barplot
@@ -470,7 +466,7 @@ par(mar=c(15.1,6.1,4.1,2.1))
 mp2 <- barplot(my_df2$Freq, main = "Overdue Services in Ward 2", 
                space=1, axes = FALSE, axisnames = FALSE)
 labels2 <- my_df2$Var1
-text(mp, par("usr")[3], labels = labels1, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp2, par("usr")[3], labels = labels1, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2) 
 
 # Ward 3 -- overdue services barplot
@@ -481,7 +477,7 @@ par(mar=c(15.1,6.1,4.1,2.1))
 mp3 <- barplot(my_df3$Freq, main = "Overdue Services in Ward 3", 
                space=1, axes = FALSE, axisnames = FALSE)
 labels3 <- my_df3$Var1
-text(mp, par("usr")[3], labels = labels3, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp3, par("usr")[3], labels = labels3, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2) 
 
 # Ward 4 --- overdue services barplot
@@ -492,49 +488,49 @@ par(mar=c(15.1,6.1,4.1,2.1))
 mp4 <- barplot(my_df4$Freq, main = "Overdue Services in Ward 4", 
                space=1, axes = FALSE, axisnames = FALSE)
 labels4 <- my_df4$Var1
-text(mp, par("usr")[3], labels = labels4, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp4, par("usr")[3], labels = labels4, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2) 
 
 # Ward 5 --- overdue services barplot
 table_overdue5 <- table(data5$SERVICECODEDESCRIPTION)
-my_df5 <- as.data.frame(table_overdue5)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+my_df5 <- as.data.frame(table_overdue5)[order(as.data.frame(table_overdue5)$Freq,decreasing = TRUE),]
 old_par5 <- par()
 par(mar=c(15.1,6.1,4.1,2.1))
 mp5 <- barplot(my_df5$Freq, main = "Overdue Services in Ward 5", 
                space=1, axes = FALSE, axisnames = FALSE)
 labels5 <- my_df5$Var1
-text(mp, par("usr")[3], labels = labels5, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp5, par("usr")[3], labels = labels5, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2) 
 
 # Ward 6 -- overdue services barplot
 table_overdue6 <- table(data6$SERVICECODEDESCRIPTION)
-my_df6 <- as.data.frame(table_overdue6)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+my_df6 <- as.data.frame(table_overdue6)[order(as.data.frame(table_overdue6)$Freq,decreasing = TRUE),]
 old_par6 <- par()
 par(mar=c(15.1,6.1,4.1,2.1))
 mp6 <- barplot(my_df6$Freq, main = "Overdue Services in Ward 6", 
                space=1, axes = FALSE, axisnames = FALSE)
 labels6 <- my_df6$Var1
-text(mp, par("usr")[3], labels = labels6, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp6, par("usr")[3], labels = labels6, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2) 
 
 # Ward 7 --- overdue requests barplot
 table_overdue7 <- table(data7$SERVICECODEDESCRIPTION)
-my_df7 <- as.data.frame(table_overdue7)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+my_df7 <- as.data.frame(table_overdue7)[order(as.data.frame(table_overdue7)$Freq,decreasing = TRUE),]
 old_par7 <- par()
 par(mar=c(15.1,6.1,4.1,2.1))
 mp7 <- barplot(my_df7$Freq, main = "Overdue Services in Ward 7", 
                space=1, axes = FALSE, axisnames = FALSE)
 labels7 <- my_df7$Var1
-text(mp, par("usr")[3], labels = labels7, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+text(mp7, par("usr")[3], labels = labels7, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
 axis(2) 
 
 # Ward 8 --- overdue requests barplot
 table_overdue8 <- table(data8$SERVICECODEDESCRIPTION)
-my_df8 <- as.data.frame(table_overdue8)[order(as.data.frame(table_overdue)$Freq,decreasing = TRUE),]
+my_df8 <- as.data.frame(table_overdue8)[order(as.data.frame(table_overdue8)$Freq,decreasing = TRUE),]
 old_par8 <- par()
 par(mar=c(15.1,6.1,4.1,2.1))
 mp8 <- barplot(my_df8$Freq, main = "Overdue Services in Ward 8", 
                space=1, axes = FALSE, axisnames = FALSE)
 labels8 <- my_df8$Var1
-text(mp, par("usr")[3], labels = labels8, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
-axis(2) 
+text(mp8, par("usr")[3], labels = labels8, srt = 90, adj = c(1.1,1.1), xpd = TRUE, cex=.5)
+axis(2)
